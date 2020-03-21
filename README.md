@@ -14,6 +14,6 @@ Primeiramente, instale o [Docker](https://docs.docker.com/install) e o [Docker C
 
 Depois, execute `docker-compose up -d`
 
-Espere até [todos os dados](qualidade-ar.sql) serem carregados e no browser acesse <http://localhost:8080>.
+Espere até [todos os dados](qualidade-ar.sql) serem carregados e no browser acesse <http://localhost:8090>.
 
 Faça o login com o usuário **qauser** e a senha **qapass**. A base de dados é **qualidade-ar**.
