@@ -35,10 +35,9 @@ services:
       mysql:
         condition: service_healthy
 
-  qualidadearbrasil:
-    build: .
-    image: esignbr/qualidadearbrasil
-    container_name: qualidadearbrasil
+  api:
+    image: esignbr/qualidade-ar-brasil
+    container_name: api
     environment:
       - MYSQL_HOST=mysql
     ports:
