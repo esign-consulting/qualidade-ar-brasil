@@ -17,6 +17,9 @@ public class OrgaoPublico {
     private String nome;
     private String site;
 
+    public OrgaoPublico() {
+    }
+
     public OrgaoPublico(int id, String sigla, String nome, String site) {
         this.id = id;
         this.sigla = sigla;
