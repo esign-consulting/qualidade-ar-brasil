@@ -17,3 +17,9 @@ Depois, execute `docker-compose up -d`
 Espere até [todos os dados](qualidade-ar.sql) serem carregados e no browser acesse <http://localhost:8090>.
 
 Faça o login com o usuário **qauser** e a senha **qapass**. A base de dados é **qualidade-ar**.
+
+### API
+
+Os dados também podem ser obtidos via API.
+
+Para consultar como podem ser obtidos, use como referência a documentação disponível em <http://localhost:8080/swagger-ui.html>.
