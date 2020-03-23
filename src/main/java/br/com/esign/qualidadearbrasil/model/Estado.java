@@ -3,13 +3,11 @@ package br.com.esign.qualidadearbrasil.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "orgaoResponsavel")
-public class OrgaoPublico {
+@Table(name = "estado")
+public class Estado {
 
     @Id
     @GeneratedValue
@@ -17,21 +15,14 @@ public class OrgaoPublico {
 
     private String sigla;
     private String nome;
-    private String site;
 
-    @ManyToOne
-    @JoinColumn(name = "id_estado")
-    private Estado estado;
-
-    public OrgaoPublico() {
+    public Estado() {
     }
 
-    public OrgaoPublico(int id, String sigla, String nome, String site, Estado estado) {
+    public Estado(int id, String sigla, String nome) {
         this.id = id;
         this.sigla = sigla;
         this.nome = nome;
-        this.site = site;
-        this.estado = estado;
     }
 
     public int getId() {
@@ -44,14 +35,6 @@ public class OrgaoPublico {
 
     public String getNome() {
         return nome;
-    }
-
-    public String getSite() {
-        return site;
-    }
-
-    public Estado getEstado() {
-        return estado;
     }
 
 }
