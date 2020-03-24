@@ -20,7 +20,7 @@ public class QualidadeAr {
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_orgaoResponsavel")
+    @JoinColumn(name = "id_orgaoPublico")
     private OrgaoPublico orgaoPublico;
 
     private String classificacao;
