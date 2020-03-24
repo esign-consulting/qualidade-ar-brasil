@@ -1,11 +1,16 @@
 package br.com.esign.qualidadearbrasil.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "orgaoResponsavel")
@@ -22,6 +27,10 @@ public class OrgaoPublico {
     @ManyToOne
     @JoinColumn(name = "id_estado")
     private Estado estado;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "orgaoPublico")
+    private Set<QualidadeAr> tabelaQualidadeAr;
 
     public OrgaoPublico() {
     }
@@ -52,6 +61,10 @@ public class OrgaoPublico {
 
     public Estado getEstado() {
         return estado;
+    }
+
+    public Set<QualidadeAr> getTabelaQualidadeAr() {
+        return tabelaQualidadeAr;
     }
 
 }
