@@ -18,7 +18,7 @@ public class OrgaoPublico {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     private String sigla;
     private String nome;
@@ -35,7 +35,7 @@ public class OrgaoPublico {
     public OrgaoPublico() {
     }
 
-    public OrgaoPublico(int id, String sigla, String nome, String site, Estado estado) {
+    public OrgaoPublico(Integer id, String sigla, String nome, String site, Estado estado) {
         this.id = id;
         this.sigla = sigla;
         this.nome = nome;
@@ -43,12 +43,16 @@ public class OrgaoPublico {
         this.estado = estado;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
     public String getSigla() {
         return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
     }
 
     public String getNome() {

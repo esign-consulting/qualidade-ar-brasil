@@ -16,7 +16,7 @@ public class QualidadeAr {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
@@ -30,7 +30,7 @@ public class QualidadeAr {
     public QualidadeAr() {
     }
 
-    public QualidadeAr(int id, OrgaoPublico orgaoPublico, String classificacao, Integer indiceMinimo, Integer indiceMaximo) {
+    public QualidadeAr(Integer id, OrgaoPublico orgaoPublico, String classificacao, Integer indiceMinimo, Integer indiceMaximo) {
         this.id = id;
         this.orgaoPublico = orgaoPublico;
         this.classificacao = classificacao;
@@ -38,7 +38,7 @@ public class QualidadeAr {
         this.indiceMaximo = indiceMaximo;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

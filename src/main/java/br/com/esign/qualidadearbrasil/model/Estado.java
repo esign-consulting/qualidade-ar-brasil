@@ -11,7 +11,7 @@ public class Estado {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     private String sigla;
     private String nome;
@@ -19,13 +19,13 @@ public class Estado {
     public Estado() {
     }
 
-    public Estado(int id, String sigla, String nome) {
+    public Estado(Integer id, String sigla, String nome) {
         this.id = id;
         this.sigla = sigla;
         this.nome = nome;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
