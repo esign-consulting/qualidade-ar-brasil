@@ -32,16 +32,12 @@ public class OrgaoPublico {
     public OrgaoPublico() {
     }
 
-    public OrgaoPublico(Integer id, String sigla, String nome, String site, Estado estado) {
-        this.id = id;
-        this.sigla = sigla;
-        this.nome = nome;
-        this.site = site;
-        this.estado = estado;
-    }
-
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getSigla() {
@@ -56,16 +52,32 @@ public class OrgaoPublico {
         return nome;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public String getSite() {
         return site;
+    }
+
+    public void setSite(String site) {
+        this.site = site;
     }
 
     public Estado getEstado() {
         return estado;
     }
 
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
     public Set<QualidadeAr> getTabelaQualidadeAr() {
         return tabelaQualidadeAr;
+    }
+
+    public void setTabelaQualidadeAr(Set<QualidadeAr> tabelaQualidadeAr) {
+        this.tabelaQualidadeAr = tabelaQualidadeAr;
     }
 
 }

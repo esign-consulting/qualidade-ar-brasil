@@ -29,32 +29,44 @@ public class QualidadeAr {
     public QualidadeAr() {
     }
 
-    public QualidadeAr(Integer id, OrgaoPublico orgaoPublico, String classificacao, Integer indiceMinimo, Integer indiceMaximo) {
-        this.id = id;
-        this.orgaoPublico = orgaoPublico;
-        this.classificacao = classificacao;
-        this.indiceMinimo = indiceMinimo;
-        this.indiceMaximo = indiceMaximo;
-    }
-
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public OrgaoPublico getOrgaoPublico() {
         return orgaoPublico;
     }
 
+    public void setOrgaoPublico(OrgaoPublico orgaoPublico) {
+        this.orgaoPublico = orgaoPublico;
+    }
+
     public String getClassificacao() {
         return classificacao;
+    }
+
+    public void setClassificacao(String classificacao) {
+        this.classificacao = classificacao;
     }
 
     public Integer getIndiceMinimo() {
         return indiceMinimo;
     }
 
+    public void setIndiceMinimo(Integer indiceMinimo) {
+        this.indiceMinimo = indiceMinimo;
+    }
+
     public Integer getIndiceMaximo() {
         return indiceMaximo;
+    }
+
+    public void setIndiceMaximo(Integer indiceMaximo) {
+        this.indiceMaximo = indiceMaximo;
     }
 
     @Override
