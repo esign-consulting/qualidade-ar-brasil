@@ -1,14 +1,13 @@
 package br.com.esign.qualidadearbrasil.model;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "qualidadeAr")
@@ -18,8 +17,8 @@ public class QualidadeAr {
     @GeneratedValue
     private Integer id;
 
-    @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @ManyToOne
     @JoinColumn(name = "id_orgaoPublico")
     private OrgaoPublico orgaoPublico;
 

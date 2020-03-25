@@ -10,8 +10,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 @Entity
 @Table(name = "orgaoPublico")
 public class OrgaoPublico {
@@ -28,7 +26,6 @@ public class OrgaoPublico {
     @JoinColumn(name = "id_estado")
     private Estado estado;
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "orgaoPublico")
     private Set<QualidadeAr> tabelaQualidadeAr;
 
