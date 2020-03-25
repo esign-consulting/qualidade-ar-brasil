@@ -2,6 +2,7 @@ package br.com.esign.qualidadearbrasil;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.esign.qualidadearbrasil.model.OrgaoPublico;
+import br.com.esign.qualidadearbrasil.model.QualidadeAr;
 import br.com.esign.qualidadearbrasil.repositories.OrgaoPublicoRepository;
 
 @RestController
@@ -34,15 +36,27 @@ public class Controller {
     @GetMapping("/orgaosPublicos/{sigla}")
     @ResponseBody
     public ResponseEntity<OrgaoPublico> obterOrgaoPublico(@PathVariable String sigla) {
+        OrgaoPublico orgaoPublico = obterOrgaoPublicoPelaSigla(sigla);
+        return new ResponseEntity<>(orgaoPublico, (orgaoPublico == null) ? HttpStatus.NOT_FOUND : HttpStatus.OK);
+    }
+
+    @GetMapping("/orgaosPublicos/{sigla}/tabelaQualidadeAr")
+    @ResponseBody
+    public ResponseEntity<Set<QualidadeAr>> obterTabelaQualidadeAr(@PathVariable String sigla) {
+        OrgaoPublico orgaoPublico = obterOrgaoPublicoPelaSigla(sigla);
+        if (orgaoPublico == null) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(orgaoPublico.getTabelaQualidadeAr(), HttpStatus.OK);
+        }
+    }
+
+    private OrgaoPublico obterOrgaoPublicoPelaSigla(String sigla) {
         OrgaoPublico orgaoPublico = new OrgaoPublico();
         orgaoPublico.setSigla(sigla);
         Example<OrgaoPublico> example = Example.of(orgaoPublico);
         Optional<OrgaoPublico> optional = orgaoPublicoRepository.findOne(example);
-        if (optional.isPresent()) {
-            return new ResponseEntity<>(optional.get(), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-        }
+        return (optional.isPresent()) ? optional.get() : null;
     }
 
 }
