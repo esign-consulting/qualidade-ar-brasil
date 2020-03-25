@@ -1,6 +1,7 @@
 package br.com.esign.qualidadearbrasil.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -18,7 +19,7 @@ public class QualidadeAr {
     private Integer id;
 
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_orgaoPublico")
     private OrgaoPublico orgaoPublico;
 
