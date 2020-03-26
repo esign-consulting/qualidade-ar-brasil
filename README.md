@@ -20,6 +20,6 @@ Faça o login com o usuário **qauser** e a senha **qapass**. A base de dados é
 
 ### API
 
-Os dados também podem ser obtidos via API.
+Os dados também podem ser obtidos via [API](https://pt.wikipedia.org/wiki/Interface_de_programa%C3%A7%C3%A3o_de_aplica%C3%A7%C3%B5es).
 
 Para consultar como podem ser obtidos, use como referência a documentação disponível em <http://localhost:8080/swagger-ui.html>.
