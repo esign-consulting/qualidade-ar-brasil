@@ -16,7 +16,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Static Code Analysis
-      run: mvn sonar:sonar -s settings.xml
+      run: mvn sonar:sonar -s settings.xml -P sonar
       env:
         SONARCLOUD_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
