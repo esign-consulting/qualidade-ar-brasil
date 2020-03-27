@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.esign.qualidadearbrasil.model.EstacaoMonitoramento;
 import br.com.esign.qualidadearbrasil.model.OrgaoPublico;
 import br.com.esign.qualidadearbrasil.model.QualidadeAr;
+import br.com.esign.qualidadearbrasil.repositories.EstacaoMonitoramentoRepository;
 import br.com.esign.qualidadearbrasil.repositories.OrgaoPublicoRepository;
 
 @RestController
@@ -25,6 +27,9 @@ public class Controller {
 
     @Autowired
     private OrgaoPublicoRepository orgaoPublicoRepository;
+
+    @Autowired
+    private EstacaoMonitoramentoRepository estacaoMonitoramentoRepository;
 
     @GetMapping("/orgaosPublicos")
     @ResponseBody
@@ -48,6 +53,20 @@ public class Controller {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         } else {
             return new ResponseEntity<>(orgaoPublico.getTabelaQualidadeAr(), HttpStatus.OK);
+        }
+    }
+
+    @GetMapping("/orgaosPublicos/{sigla}/estacoesMonitoramento")
+    @ResponseBody
+    public ResponseEntity<List<EstacaoMonitoramento>> listarEstacoesMonitoramento(@PathVariable String sigla) {
+        OrgaoPublico orgaoPublico = obterOrgaoPublicoPelaSigla(sigla);
+        if (orgaoPublico == null) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        } else {
+            EstacaoMonitoramento estacaoMonitoramento = new EstacaoMonitoramento();
+            estacaoMonitoramento.setOrgaoPublico(orgaoPublico);
+            Example<EstacaoMonitoramento> example = Example.of(estacaoMonitoramento);
+            return new ResponseEntity<>(estacaoMonitoramentoRepository.findAll(example), HttpStatus.OK);
         }
     }
 
