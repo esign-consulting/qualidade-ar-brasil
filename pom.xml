@@ -16,6 +16,14 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Esign Consulting Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/esign-consulting/qualidade-ar-brasil</url>
+        </repository>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

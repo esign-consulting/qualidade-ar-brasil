@@ -20,3 +20,7 @@ jobs:
       env:
         SONARCLOUD_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Deploy to Maven Repository
+      run: mvn deploy -s settings.xml
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
