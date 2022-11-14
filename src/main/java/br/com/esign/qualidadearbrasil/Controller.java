@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.esign.qualidadearbrasil.model.EstacaoMonitoramento;
 import br.com.esign.qualidadearbrasil.model.OrgaoPublico;
+import br.com.esign.qualidadearbrasil.model.Poluente;
 import br.com.esign.qualidadearbrasil.model.QualidadeAr;
 import br.com.esign.qualidadearbrasil.repositories.EstacaoMonitoramentoRepository;
 import br.com.esign.qualidadearbrasil.repositories.OrgaoPublicoRepository;
+import br.com.esign.qualidadearbrasil.repositories.PoluenteRepository;
 
 @RestController
 @RequestMapping("/api")
@@ -30,6 +32,9 @@ public class Controller {
 
     @Autowired
     private EstacaoMonitoramentoRepository estacaoMonitoramentoRepository;
+
+    @Autowired
+    private PoluenteRepository poluenteRepository;
 
     @GetMapping("/orgaosPublicos")
     @ResponseBody
@@ -68,6 +73,13 @@ public class Controller {
             Example<EstacaoMonitoramento> example = Example.of(estacaoMonitoramento);
             return new ResponseEntity<>(estacaoMonitoramentoRepository.findAll(example), HttpStatus.OK);
         }
+    }
+
+    @GetMapping("/poluentes")
+    @ResponseBody
+    public ResponseEntity<List<Poluente>> listarPoluentes() {
+        List<Poluente> poluentes = poluenteRepository.findAll();
+        return new ResponseEntity<>(poluentes, HttpStatus.OK);
     }
 
     private OrgaoPublico obterOrgaoPublicoPelaSigla(String sigla) {

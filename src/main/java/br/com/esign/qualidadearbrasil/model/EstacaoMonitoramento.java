@@ -32,9 +32,6 @@ public class EstacaoMonitoramento {
     private BigDecimal latitude;
     private BigDecimal longitude;
 
-    public EstacaoMonitoramento() {
-    }
-
     public Integer getId() {
         return id;
     }

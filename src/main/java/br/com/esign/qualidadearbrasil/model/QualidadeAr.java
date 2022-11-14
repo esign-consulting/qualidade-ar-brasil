@@ -26,9 +26,6 @@ public class QualidadeAr {
     private Integer indiceMinimo;
     private Integer indiceMaximo;
 
-    public QualidadeAr() {
-    }
-
     public Integer getId() {
         return id;
     }

@@ -21,9 +21,6 @@ public class Cidade {
 
     private String nome;
 
-    public Cidade() {
-    }
-
     public Integer getId() {
         return id;
     }

@@ -6,14 +6,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "estado")
-public class Estado {
+@Table(name = "poluente")
+public class Poluente {
 
     @Id
     @GeneratedValue
     private Integer id;
 
-    private String sigla;
+    private String representacao;
     private String nome;
 
     public Integer getId() {
@@ -24,12 +24,12 @@ public class Estado {
         this.id = id;
     }
 
-    public String getSigla() {
-        return sigla;
+    public String getRepresentacao() {
+        return representacao;
     }
 
-    public void setSigla(String sigla) {
-        this.sigla = sigla;
+    public void setRepresentacao(String representacao) {
+        this.representacao = representacao;
     }
 
     public String getNome() {

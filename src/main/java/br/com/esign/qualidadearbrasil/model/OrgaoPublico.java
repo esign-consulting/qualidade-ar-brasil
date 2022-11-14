@@ -29,9 +29,6 @@ public class OrgaoPublico {
     @OneToMany(mappedBy = "orgaoPublico")
     private Set<QualidadeAr> tabelaQualidadeAr;
 
-    public OrgaoPublico() {
-    }
-
     public Integer getId() {
         return id;
     }
