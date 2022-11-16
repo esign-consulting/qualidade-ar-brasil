@@ -23,7 +23,7 @@ services:
       retries: 20
 
   mysql_admin:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin:5.2.0-apache
     container_name: mysql_admin
     environment:
       - PMA_HOST=mysql
