@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "medicao")
@@ -26,7 +27,7 @@ public class Medicao {
     @JoinColumn(name = "id_qualidadeAr")
     private QualidadeAr qualidadeAr;
 
-    @Temporal(TempooralType.TIMESTAMP)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date datahora;
 
     private Float indice;
