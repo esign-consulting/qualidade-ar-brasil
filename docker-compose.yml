@@ -17,7 +17,7 @@ services:
     command:
       - --default-authentication-plugin=mysql_native_password
     healthcheck:
-      test: mysql -u qauser -pqapass  -e 'use qualidade-ar;select count(*) from qualidadeAr;'
+      test: mysql -u qauser -pqapass -e 'use qualidade-ar;select count(*) from qualidadeAr;'
       interval: 10s
       timeout: 5s
       retries: 20

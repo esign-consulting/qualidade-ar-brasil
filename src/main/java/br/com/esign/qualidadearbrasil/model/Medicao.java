@@ -1,6 +1,6 @@
 package br.com.esign.qualidadearbrasil.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,7 +30,7 @@ public class Medicao {
     @Temporal(TemporalType.TIMESTAMP)
     private Date datahora;
 
-    private Float indice;
+    private Double indice;
 
     @ManyToOne
     @JoinColumn(name = "id_poluente")
@@ -68,11 +68,11 @@ public class Medicao {
         this.datahora = datahora;
     }
 
-    public Float getIndice() {
+    public Double getIndice() {
         return indice;
     }
 
-    public void setIndice(Float indice) {
+    public void setIndice(Double indice) {
         this.indice = indice;
     }
 
