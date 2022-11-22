@@ -1,5 +1,6 @@
 package br.com.esign.qualidadearbrasil.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -16,26 +17,16 @@ import org.springframework.data.annotation.Immutable;
 public class UltimaMedicao {
 
     @Id
+    @Column(name = "id_estacaoMonitoramento", insertable = false, updatable = false)
     private Integer estacaoMonitoramentoId;
 
     @Id
+    @Column(name = "id_medicao", insertable = false, updatable = false)
     private Integer medicaoId;
-
-    @ManyToOne
-    @JoinColumn(name = "id_estacaoMonitoramento")
-    private EstacaoMonitoramento estacaoMonitoramento;
 
     @ManyToOne
     @JoinColumn(name = "id_medicao")
     private Medicao medicao;
-
-    public EstacaoMonitoramento getEstacaoMonitoramento() {
-        return estacaoMonitoramento;
-    }
-
-    public void setEstacaoMonitoramento(EstacaoMonitoramento estacaoMonitoramento) {
-        this.estacaoMonitoramento = estacaoMonitoramento;
-    }
 
     public Medicao getMedicao() {
         return medicao;

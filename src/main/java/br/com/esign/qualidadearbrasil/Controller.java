@@ -19,9 +19,11 @@ import br.com.esign.qualidadearbrasil.model.EstacaoMonitoramento;
 import br.com.esign.qualidadearbrasil.model.OrgaoPublico;
 import br.com.esign.qualidadearbrasil.model.Poluente;
 import br.com.esign.qualidadearbrasil.model.QualidadeAr;
+import br.com.esign.qualidadearbrasil.model.UltimaMedicao;
 import br.com.esign.qualidadearbrasil.repositories.EstacaoMonitoramentoRepository;
 import br.com.esign.qualidadearbrasil.repositories.OrgaoPublicoRepository;
 import br.com.esign.qualidadearbrasil.repositories.PoluenteRepository;
+import br.com.esign.qualidadearbrasil.repositories.UltimaMedicaoRepository;
 
 @RestController
 @RequestMapping("/api")
@@ -35,6 +37,9 @@ public class Controller {
 
     @Autowired
     private PoluenteRepository poluenteRepository;
+
+    @Autowired
+    private UltimaMedicaoRepository ultimasMedicoesRepository;
 
     @GetMapping("/orgaosPublicos")
     @ResponseBody
@@ -80,6 +85,13 @@ public class Controller {
     public ResponseEntity<List<Poluente>> listarPoluentes() {
         List<Poluente> poluentes = poluenteRepository.findAll();
         return new ResponseEntity<>(poluentes, HttpStatus.OK);
+    }
+
+    @GetMapping("/ultimasMedicoes")
+    @ResponseBody
+    public ResponseEntity<List<UltimaMedicao>> listarUltimasMedicoes() {
+        List<UltimaMedicao> ultimasMedicoes = ultimasMedicoesRepository.findAll();
+        return new ResponseEntity<>(ultimasMedicoes, HttpStatus.OK);
     }
 
     private OrgaoPublico obterOrgaoPublicoPelaSigla(String sigla) {
