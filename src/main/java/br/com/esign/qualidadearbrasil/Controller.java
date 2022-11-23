@@ -1,7 +1,6 @@
 package br.com.esign.qualidadearbrasil;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,14 +50,14 @@ public class Controller {
     @GetMapping("/orgaosPublicos/{sigla}")
     @ResponseBody
     public ResponseEntity<OrgaoPublico> obterOrgaoPublico(@PathVariable String sigla) {
-        OrgaoPublico orgaoPublico = obterOrgaoPublicoPelaSigla(sigla);
+        OrgaoPublico orgaoPublico = orgaoPublicoRepository.findBySigla(sigla);
         return new ResponseEntity<>(orgaoPublico, (orgaoPublico == null) ? HttpStatus.NOT_FOUND : HttpStatus.OK);
     }
 
     @GetMapping("/orgaosPublicos/{sigla}/tabelaQualidadeAr")
     @ResponseBody
     public ResponseEntity<Set<QualidadeAr>> obterTabelaQualidadeAr(@PathVariable String sigla) {
-        OrgaoPublico orgaoPublico = obterOrgaoPublicoPelaSigla(sigla);
+        OrgaoPublico orgaoPublico = orgaoPublicoRepository.findBySigla(sigla);
         if (orgaoPublico == null) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         } else {
@@ -69,7 +68,7 @@ public class Controller {
     @GetMapping("/orgaosPublicos/{sigla}/estacoesMonitoramento")
     @ResponseBody
     public ResponseEntity<List<EstacaoMonitoramento>> listarEstacoesMonitoramento(@PathVariable String sigla) {
-        OrgaoPublico orgaoPublico = obterOrgaoPublicoPelaSigla(sigla);
+        OrgaoPublico orgaoPublico = orgaoPublicoRepository.findBySigla(sigla);
         if (orgaoPublico == null) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         } else {
@@ -92,14 +91,6 @@ public class Controller {
     public ResponseEntity<List<UltimaMedicao>> listarUltimasMedicoes() {
         List<UltimaMedicao> ultimasMedicoes = ultimasMedicoesRepository.findAll();
         return new ResponseEntity<>(ultimasMedicoes, HttpStatus.OK);
-    }
-
-    private OrgaoPublico obterOrgaoPublicoPelaSigla(String sigla) {
-        OrgaoPublico orgaoPublico = new OrgaoPublico();
-        orgaoPublico.setSigla(sigla);
-        Example<OrgaoPublico> example = Example.of(orgaoPublico);
-        Optional<OrgaoPublico> optional = orgaoPublicoRepository.findOne(example);
-        return (optional.isPresent()) ? optional.get() : null;
     }
 
 }
